@@ -15,15 +15,15 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/api")
-public class HelloWorldCrl {
+public class HelloWorldCtrl {
     @SneakyThrows
     @GetMapping(value = "/helloworld", produces = MediaType.APPLICATION_JSON_VALUE)
     public Result helloWorld(){
-        Thread.sleep(500);
+        Thread.sleep(300);
         Result result = new Result();
         result.setMsg("hello world");
         result.setTs(new Date());
-        result.setMid("1");
+        result.setMid("2");
         return result;
     }
 }
