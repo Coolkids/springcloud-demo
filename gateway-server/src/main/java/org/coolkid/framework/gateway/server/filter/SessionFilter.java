@@ -22,8 +22,8 @@ public class SessionFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         exchange.getSession().map(
                 session -> {
-                    if(Objects.isNull(session.getAttribute("id"))){
-                        session.getAttributes().put("id", UUID.randomUUID().toString());
+                    if(Objects.isNull(session.getAttribute("id2"))){
+                        session.getAttributes().put("id2", UUID.randomUUID().toString());
                     }
                     return session;
                 }
