@@ -25,6 +25,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <spring-cloud.hystrix.version>2.2.10.RELEASE</spring-cloud.hystrix.version>
     </properties>
     <dependencies>
         <dependency>
