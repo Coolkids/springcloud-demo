@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 /**
@@ -18,12 +19,14 @@ import java.util.Date;
 public class HelloWorldCtrl {
     @SneakyThrows
     @GetMapping(value = "/helloworld", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Result helloWorld(){
+    public Result helloWorld(HttpSession session){
+        Object id = session.getAttribute("id");
         Thread.sleep(300);
         Result result = new Result();
         result.setMsg("hello world");
         result.setTs(new Date());
         result.setMid("2");
+        result.setSessionId(String.valueOf(id));
         return result;
     }
 }

@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+import java.util.Objects;
+import java.util.UUID;
+
 /**
  * Created by coolkid on 2021/11/25.
  */
@@ -18,7 +22,10 @@ public class ConsumerCtrl {
     private HelloWorldService helloWorldService;
 
     @GetMapping(value = "/helloworld", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Result helloWorld(){
+    public Result helloWorld(HttpSession session){
+        if(Objects.isNull(session.getAttribute("id"))){
+            session.setAttribute("id", UUID.randomUUID().toString());
+        }
         return helloWorldService.helloworld();
     }
 

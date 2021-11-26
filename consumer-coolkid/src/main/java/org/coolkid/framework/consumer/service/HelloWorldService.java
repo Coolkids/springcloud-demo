@@ -1,7 +1,7 @@
 package org.coolkid.framework.consumer.service;
 
 import org.coolkid.framework.base.api.vo.Result;
-import org.coolkid.framework.consumer.callback.HelloWorldServiceFallbackFactory;
+import org.coolkid.framework.consumer.callback.HelloWorldServiceHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 
 @Component
-@FeignClient(value = "PROVIDER-COOLKID", fallbackFactory = HelloWorldServiceFallbackFactory.class)
+@FeignClient(value = "PROVIDER-COOLKID",contextId = "demo", path = "/provider-coolkid", fallback = HelloWorldServiceHystrix.class)
 public interface HelloWorldService {
-    @GetMapping(value = "/provider-coolkid/api/helloworld")
+    @GetMapping(value = "/api/helloworld")
     public Result helloworld();
 }

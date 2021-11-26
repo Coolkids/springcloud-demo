@@ -16,4 +16,5 @@ public class Result {
     private String msg;
     private Date ts;
     private String mid;
+    private String sessionId;
 }

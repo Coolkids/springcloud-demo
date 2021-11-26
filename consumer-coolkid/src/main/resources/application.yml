@@ -9,6 +9,25 @@ spring:
   cloud:
     config:
       enabled: false
+  redis:
+    host: 10.100.50.253
+    password: admin
+    port: 6379
+  session:
+    store-type: redis
+
+feign:
+  circuitbreaker:
+    enabled: true
+    group:
+      enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
 
 app:
   config:

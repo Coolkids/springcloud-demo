@@ -9,6 +9,12 @@ spring:
   cloud:
     config:
       enabled: false
+  redis:
+    host: 10.100.50.253
+    password: admin
+    port: 6379
+  session:
+    store-type: redis
 
 logging:
   level:
