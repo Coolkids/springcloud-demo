@@ -10,6 +10,8 @@
         <module>provider-demo2</module>
         <module>base-api</module>
         <module>consumer-coolkid</module>
+        <module>zuul-server</module>
+        <module>gateway-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -26,6 +28,8 @@
         <maven.compiler.target>11</maven.compiler.target>
         <spring-cloud.version>2020.0.4</spring-cloud.version>
         <spring-cloud.hystrix.version>2.2.10.RELEASE</spring-cloud.hystrix.version>
+        <spring-cloud.zuul.version>2.2.10.RELEASE</spring-cloud.zuul.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
     </properties>
     <dependencies>
         <dependency>
@@ -41,6 +45,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${commons-collections4.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

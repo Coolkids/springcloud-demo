@@ -21,7 +21,6 @@ public class HelloWorldCtrl {
     @GetMapping(value = "/helloworld", produces = MediaType.APPLICATION_JSON_VALUE)
     public Result helloWorld(HttpSession session){
         Object id = session.getAttribute("id");
-        Thread.sleep(300);
         Result result = new Result();
         result.setMsg("hello world");
         result.setTs(new Date());
