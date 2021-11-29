@@ -9,7 +9,8 @@ spring:
     password: admin
     port: 6379
   session:
-      store-type: redis
+    cookie-name: GATEWAY-SESSION
+    store-type: redis
   cloud:
     config:
       enabled: false

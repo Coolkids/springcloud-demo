@@ -1,6 +1,7 @@
 package org.coolkid.framework.provider.controller;
 
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.coolkid.framework.base.api.vo.Result;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +17,12 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/api")
+@Slf4j
 public class HelloWorldCtrl {
     @SneakyThrows
     @GetMapping(value = "/helloworld", produces = MediaType.APPLICATION_JSON_VALUE)
     public Result helloWorld(HttpSession session) {
+        log.error("provider1 sessionid:{}", session.getId());
         Object id = session.getAttribute("id");
         Result result = new Result();
         result.setMsg("hello world");
