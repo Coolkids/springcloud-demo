@@ -26,7 +26,7 @@ public class ConsumerCtrl {
 
     @GetMapping(value = "/helloworld", produces = MediaType.APPLICATION_JSON_VALUE)
     public Result helloWorld(HttpSession session, HttpServletRequest request){
-        log.error("consumer sessionid:{}", session.getId());
+        log.info("consumer sessionid:{}", session.getId());
         if(Objects.isNull(session.getAttribute("id"))){
             session.setAttribute("id", UUID.randomUUID().toString());
         }

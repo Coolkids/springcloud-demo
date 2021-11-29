@@ -20,14 +20,14 @@ import java.util.UUID;
 public class SessionFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        log.error("gateway filter");
+        log.info("gateway filter");
         return exchange.getSession().flatMap(
                 session -> {
                     if(Objects.isNull(session.getAttribute("id2"))){
                         session.getAttributes().put("id2", UUID.randomUUID().toString());
                     }
-                    log.error("gateway session id2:{}", session.getAttributes().get("id2"));
-                    log.error("gateway sessionid:{}", session.getId());
+                    log.info("gateway session id2:{}", session.getAttributes().get("id2"));
+                    log.info("gateway sessionid:{}", session.getId());
                     return chain.filter(exchange);
                 }
         ).then(Mono.fromRunnable(() -> log.info("this is a post filter")));

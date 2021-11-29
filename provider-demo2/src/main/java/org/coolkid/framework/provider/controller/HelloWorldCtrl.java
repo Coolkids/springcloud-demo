@@ -22,7 +22,7 @@ public class HelloWorldCtrl {
     @SneakyThrows
     @GetMapping(value = "/helloworld", produces = MediaType.APPLICATION_JSON_VALUE)
     public Result helloWorld(HttpSession session){
-        log.error("provider2 sessionid:{}", session.getId());
+        log.info("provider2 sessionid:{}", session.getId());
         Object id = session.getAttribute("id");
         Result result = new Result();
         result.setMsg("hello world");
