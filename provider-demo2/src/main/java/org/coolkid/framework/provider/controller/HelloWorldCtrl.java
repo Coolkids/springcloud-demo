@@ -25,6 +25,7 @@ public class HelloWorldCtrl {
     public Result helloWorld(HttpSession session, HttpServletRequest request){
         log.info("provider2 sessionid:{}", session.getId());
         log.info("provider2 header addvcd:{}", request.getHeader("addvcd"));
+        log.info("provider2 header addvcd2:{}", request.getHeader("addvcd2"));
         Object id = session.getAttribute("id");
         Result result = new Result();
         result.setMsg("hello world");
