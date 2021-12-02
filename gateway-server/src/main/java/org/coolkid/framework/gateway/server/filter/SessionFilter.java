@@ -23,7 +23,7 @@ public class SessionFilter implements GlobalFilter, Ordered {
         log.info("gateway filter");
         return exchange.getSession().flatMap(
                 session -> {
-                    if(Objects.isNull(session.getAttribute("id2"))){
+                    if (Objects.isNull(session.getAttribute("id2"))) {
                         session.getAttributes().put("id2", UUID.randomUUID().toString());
                     }
                     log.info("gateway session id2:{}", session.getAttributes().get("id2"));

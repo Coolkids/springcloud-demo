@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
@@ -21,8 +22,9 @@ import java.util.Date;
 public class HelloWorldCtrl {
     @SneakyThrows
     @GetMapping(value = "/helloworld", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Result helloWorld(HttpSession session){
+    public Result helloWorld(HttpSession session, HttpServletRequest request){
         log.info("provider2 sessionid:{}", session.getId());
+        log.info("provider2 header addvcd:{}", request.getHeader("addvcd"));
         Object id = session.getAttribute("id");
         Result result = new Result();
         result.setMsg("hello world");

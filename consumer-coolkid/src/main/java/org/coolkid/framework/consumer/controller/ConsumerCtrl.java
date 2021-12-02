@@ -30,6 +30,7 @@ public class ConsumerCtrl {
         if(Objects.isNull(session.getAttribute("id"))){
             session.setAttribute("id", UUID.randomUUID().toString());
         }
+        log.info("consumer header addvcd:{}", request.getHeader("addvcd"));
         return helloWorldService.helloworld();
     }
 
